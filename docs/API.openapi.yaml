@@ -1,0 +1,39 @@
+openapi: 3.0.3
+info:
+  title: DAMPSYSTEM API
+  version: 0.1.0
+servers:
+  - url: https://api.dampandmould.uk
+paths:
+  /api/leads:
+    post:
+      summary: Create lead from intake wizard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeadCreate'
+      responses:
+        '201':
+          description: Created
+  /api/quotes/{id}:
+    get:
+      summary: Get quote (with options)
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: OK }
+components:
+  schemas:
+    LeadCreate:
+      type: object
+      properties:
+        contact: { type: object }
+        property: { type: object }
+        problems: { type: array, items: { type: string } }
+        evidence_urls: { type: array, items: { type: string, format: uri } }
+      required: [contact, property]

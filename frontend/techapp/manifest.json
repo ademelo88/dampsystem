@@ -1,0 +1,9 @@
+{
+  "name": "DAMS Technician",
+  "short_name": "DAMS Tech",
+  "start_url": "/frontend/techapp/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0ea5e9",
+  "icons": []
+}

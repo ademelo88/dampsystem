@@ -1,0 +1,2 @@
+<?php
+namespace App\Filament\Resources\LabourRateResource\Pages; use App\Filament\Resources\LabourRateResource; use Filament\Resources\Pages\EditRecord; class EditLabourRate extends EditRecord { protected static string $resource = LabourRateResource::class; }

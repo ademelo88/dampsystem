@@ -1,0 +1,2 @@
+<?php
+namespace App\Filament\Resources\LabourRateResource\Pages; use App\Filament\Resources\LabourRateResource; use Filament\Resources\Pages\ListRecords; class ListLabourRates extends ListRecords { protected static string $resource = LabourRateResource::class; }

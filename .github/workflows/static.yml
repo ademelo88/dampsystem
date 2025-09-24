@@ -1,0 +1,24 @@
+name: static-analysis
+on: [push, pull_request]
+jobs:
+  pint-phpstan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, intl, gd, redis, pdo_mysql
+      - name: Install composer deps
+        run: |
+          cd backend
+          composer install --no-interaction --prefer-dist --no-progress
+          composer require --dev laravel/pint:^1 nunomaduro/larastan:^2 phpstan/phpstan:^1
+      - name: Run Pint
+        run: |
+          cd backend
+          vendor/bin/pint -v || true
+      - name: Run PHPStan (Larastan)
+        run: |
+          cd backend
+          vendor/bin/phpstan analyse --memory-limit=1G || true

@@ -1,0 +1,1 @@
+<!doctype html><html><head><meta charset='utf-8'><style>body{font-family:DejaVu Sans;font-size:12px}</style></head><body><h1>Care & Maintenance Guide</h1><ol><li>Ventilate daily (trickle vents & fans).</li><li>Heat rooms evenly to avoid cold spots.</li><li>Wipe and dry window reveals regularly.</li></ol></body></html>

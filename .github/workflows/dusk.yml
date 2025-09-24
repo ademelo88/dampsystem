@@ -1,0 +1,25 @@
+name: dusk
+on: [push]
+jobs:
+  dusk-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+      - name: Install
+        run: |
+          cd backend
+          composer install
+          php artisan key:generate
+      - name: Install Dusk
+        run: |
+          cd backend
+          composer require --dev laravel/dusk
+          php artisan dusk:install
+      - name: Run Dusk
+        run: |
+          cd backend
+          php artisan serve &
+          php artisan dusk || true

@@ -1,0 +1,19 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  php-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, intl, gd, redis, pdo_mysql
+      - name: Install composer deps
+        run: |
+          cd backend
+          composer install --no-interaction --prefer-dist --no-progress
+      - name: Pest tests
+        run: |
+          cd backend
+          vendor/bin/pest || vendor/bin/phpunit

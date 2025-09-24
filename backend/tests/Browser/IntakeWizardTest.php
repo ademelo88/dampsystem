@@ -1,0 +1,2 @@
+<?php
+// dusk test placeholder

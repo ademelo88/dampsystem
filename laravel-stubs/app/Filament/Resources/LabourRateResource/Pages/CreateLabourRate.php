@@ -1,0 +1,2 @@
+<?php
+namespace App\Filament\Resources\LabourRateResource\Pages; use App\Filament\Resources\LabourRateResource; use Filament\Resources\Pages\CreateRecord; class CreateLabourRate extends CreateRecord { protected static string $resource = LabourRateResource::class; }
